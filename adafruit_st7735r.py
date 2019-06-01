@@ -96,6 +96,6 @@ class ST7735R(displayio.Display):
             init_sequence += (b"\x36\x01\xC8", b"\x36\x01\xA8", b"\x36\x01\x08", b"\x36\x01\x68")[hardware_rotation] # default _MADCTL 
         
         #auto switches width and height of rotation is 1 or 2
-        #if rotation%2: # if 1 or 2
-            #kwargs['width'], kwargs['height'] = kwargs['height'] , kwargs['width'] 
+        if rotation%2: # if off
+            kwargs['width'], kwargs['height'] = kwargs['height'] , kwargs['width'] 
         super().__init__(bus, init_sequence, **kwargs)
